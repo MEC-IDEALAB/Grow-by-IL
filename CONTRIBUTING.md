@@ -17,7 +17,7 @@ Before contributing, read:
 
 ## Branching Strategy
 
-- `main`: production-ready trunk. Never push directly.
+- `main`: protected GitHub default branch; production readiness is separately verified. Never push directly.
 - `develop`: optional integration branch when active release coordination needs
   it.
 - `release/*`: release stabilization branches.

@@ -19,9 +19,9 @@ Contact:
 
 - navaneeth2020kannan@gmail.com
 
-This contact is intentional for the current private/student-led repository. If
-the repository becomes public or institution-owned, replace this with an
-institutional security contact before launch.
+This is the existing maintainer disclosure contact for this public repository.
+Confirm an institution-owned security/support contact before launch; never publish
+private exploit details in ordinary issues or general cleanup pull requests.
 
 Include:
 

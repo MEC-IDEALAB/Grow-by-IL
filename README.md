@@ -1,72 +1,49 @@
-## Grow~ by IdeaLab
-Operational management platform for AICTE IdeaLab at MEC (Model Engineering College), Kerala.
+# Grow — IDEA Lab and Fab Lab
 
-## What it does
-- Lab check-in/out with QR
-- Tool booking and inventory
-- Project and team management
-- Event RSVP
-- Role-based administration
-- Google Sign-In (via Firebase + Supabase hybrid auth)
+Android-first platform for IDEA Lab/Fab Lab operations at MEC. The initial target is
+an evidence-backed 25–50-user pilot, followed by measured expansion toward 4,000+.
+Operational backend and release acceptance remain in progress.
 
-## Tech stack
-- Flutter 3.41.9 (Android)
-- Supabase (Auth, Database, Storage, Realtime)
-- Firebase (Google Sign-In credential verification)
-- Riverpod 2.x (state management)
-- GoRouter (navigation)
+- [Documentation index](docs/README.md)
+- [Current baseline](docs/00_Project/CURRENT_PROJECT_BASELINE.md)
+- [Repository layout and recovery](docs/00_Project/REPOSITORY_CONSOLIDATION.md)
+- [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4)
 
-## Project structure
-- `lib/core/` — app configuration, routing, and theme
-- `lib/features/` — main feature modules (auth, explore, lab, profile, projects, events, admin)
-- `lib/shared/` — reusable widgets, models, and repositories
+## Source layout
 
-## Getting started
+Use one primary checkout, grow/. Flutter code is in lib/core, lib/features and
+lib/shared; Android source is in android; assets, unit/widget tests and integration
+acceptance sources remain in their framework locations. Narrative docs live in docs.
+Required repository/agent/security entry files and GitHub templates remain discoverable.
+Ignored .local contains private recovery and local artifacts, never application source.
 
-**Prerequisites**
-- Flutter SDK (3.41.9 or compatible)
-- Dart SDK
-- Supabase project access
-- Firebase project access (for Google Sign-In)
+## Local setup
 
-**Setup**
+Use the pinned Flutter 3.41.9 toolchain for the current RC5 source and the committed
+pubspec.lock. SDK/API major upgrades are separate migration work, tracked in #114.
+
 ```sh
 flutter pub get
+flutter analyze
+flutter test
 ```
 
-**Firebase Setup** (one-time per developer):
-1. Download `google-services.json` from [Firebase Console](https://console.firebase.google.com/) → Project Settings → Your Apps
-2. Place it at `android/app/google-services.json`
-3. This file is **gitignored** and must NOT be committed
+Supply the intended environment's public mobile configuration through the existing
+build configuration; .env.example lists names. Place the environment-specific
+Firebase Android configuration at android/app/google-services.json, which is ignored.
+Use the [provider checklist](docs/03_Database/AUTH_PROVIDER_RELEASE_CHECKLIST.md) before
+claiming Google/email auth or an exact APK is ready.
 
-## Development
+Supabase Auth is the application identity authority. Firebase/native Google integration
+is not a second authorization authority. Values supplied with --dart-define are bundled
+into the APK: never put service-role credentials, signing/payment secrets or other
+privileged secrets there. Server-enforced grants/RLS and protected functions remain
+required; UI visibility and successful builds do not prove authorization.
 
-All sensitive credentials are injected via `--dart-define` at build time. **No API keys are hardcoded in source.**
+## Current verification boundary
 
-```sh
-flutter run -d <device> \
-  --dart-define=SUPABASE_URL=YOUR_URL \
-  --dart-define=SUPABASE_ANON_KEY=YOUR_KEY \
-  --dart-define=GOOGLE_WEB_CLIENT_ID=YOUR_GOOGLE_WEB_CLIENT_ID \
-  --dart-define=FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY \
-  --dart-define=FIREBASE_APP_ID=YOUR_FIREBASE_APP_ID \
-  --dart-define=FIREBASE_MESSAGING_SENDER_ID=YOUR_SENDER_ID \
-  --dart-define=FIREBASE_PROJECT_ID=YOUR_PROJECT_ID \
-  --dart-define=FIREBASE_STORAGE_BUCKET=YOUR_BUCKET
-```
-
-See `.env.example` for a complete list of required values and where to find them.
-
-## Security
-- All secrets injected via `--dart-define` (compile-time only)
-- `google-services.json` is gitignored
-- No `service_role` keys in frontend
-- RLS enforced on all protected tables
-
-## Current status
-**RC4 — Production Readiness Phase**
-- **Auth & Route Hardening**: Implemented role-aware dynamic navigation gating `/admin` direct routing via a Riverpod-backed `routerProvider` and `/unauthorized` fallback UI.
-- **Resilience & Observability**: Integrated Firebase Crashlytics for production exception tracking, and added a centralized 10-second timeout guard on all Supabase queries.
-- **Global Error Handling**: Standardized screen error states using tactile custom retry widgets.
-- **Robust Testing**: Expanded integration flow testing using Mocktail (57 tests passing with 100% clean static analysis).
-- Zero known critical vulnerabilities.
+Auth/profile/navigation surfaces and local Work Request UI exist, but the Work Request
+runtime is still simulated. Real backend authorization, providers/email delivery,
+Android journeys, operational data, signing, recovery/load and pilot support remain
+acceptance gates. No universal RLS, vulnerability-free, or production-ready claim is
+made. See the current baseline and live Project for exact evidence and next tasks.
