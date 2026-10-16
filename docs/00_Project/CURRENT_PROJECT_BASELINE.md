@@ -25,16 +25,21 @@ checks passed.
 PR #126 updates the stacked-base CI coverage. Its refreshed head 99d475a1 passed the
 exact-head Quality Gate and Debug APK Build, then merged to RC5 as 930594ae. PRs #123
 and #125 were closed as incompatible grouped upgrades; duplicate main-target PR #57
-is closed while RC5 PR #56 remains merged; #114 records the staged migration. PR #133
-merged this updated delivery baseline to RC5 as fb01f40 after its exact-head Quality
-Gate and Debug APK Build passed.
+is closed while RC5 PR #56 remains merged. Issue #114 tracks a staged Flutter 3.47,
+Riverpod 3 and Google Sign-In 7 migration. PR #133 merged this delivery baseline to
+RC5 as fb01f40 after its exact-head Quality Gate and Debug APK Build passed. PR #134
+merged to RC5 as 39aa2587 after its exact-head Quality Gate and Debug APK Build
+passed; superseded draft PR #115 is closed.
 
-Meaningful product PRs #90, #99, #100, #103 and #108 remain open for current-base
-checks and applicable real device/security acceptance. The high-level external
-participant scope from draft PR #115 is now recorded in the canonical ADR and system
-boundary docs below; issues #93 and #95 remain open for detailed eligibility, request
-fields, safety/routing, payment, privacy, support contracts, and charter/backlog
-reconciliation. Historical green checks do not validate a changed base or revision.
+Draft PR #90 currently conflicts with RC5; #99, #103 and #108 are behind RC5; #100
+is stacked on #99 and has only a skipped Dependabot check, with no required Quality
+Gate or Debug APK result. Reconcile these bases, rerun current exact-head checks, get
+independent review, and complete applicable device/security acceptance before merge.
+Historic green checks do not validate the updated RC5 base. PR #134 ports the useful
+high-level external-participant scope from draft #115 into the canonical ADR and
+system-boundary docs; #115 is closed as superseded. Issues #93 and #95 remain open for
+detailed eligibility, request fields, safety/routing, payment, privacy, support
+contracts, and charter/backlog reconciliation.
 
 ## Documentation and workspace
 
