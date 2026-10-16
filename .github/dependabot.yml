@@ -1,31 +1,6 @@
 version: 2
-updates:
-  # Maintain dependencies for GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    groups:
-      actions-updates:
-        patterns: ["*"]
-
-  # Maintain dependencies for Pub (Dart/Flutter)
-  - package-ecosystem: "pub"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    groups:
-      flutter-updates:
-        patterns: ["*"]
-
-  # Maintain dependencies for Gradle (Android)
-  - package-ecosystem: "gradle"
-    directory: "/android"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 5
-    groups:
-      android-updates:
-        patterns: ["*"]
+# Version-update schedules intentionally disabled (2026-09-03) to stop weekly
+# dependabot PRs (github-actions/pub/gradle). Automated security fixes and
+# vulnerability alerts are unaffected by this file and are configured
+# separately in repo Settings > Code security.
+updates: []
