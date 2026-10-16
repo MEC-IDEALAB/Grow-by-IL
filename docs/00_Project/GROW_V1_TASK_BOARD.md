@@ -1,34 +1,35 @@
 # Grow delivery handoff
 
-Updated: 16 October 2026. [GitHub Project](https://github.com/users/NAVANEETHVVINOD/projects/4)
-is the single live delivery queue. Issues own detailed acceptance; Project fields show
-phase/priority/dependency/evidence. This is the current consolidation checklist, not
-a second product roadmap. Markers: ✓ complete; - working; ✗ blocked; blank unfinished.
+Updated: 17 October 2026. The [GitHub Project](https://github.com/users/NAVANEETHVVINOD/projects/4)
+is the live delivery queue. Issues hold acceptance criteria; Project fields track
+phase, priority, dependency and evidence. This file records the current handoff.
 
-| Status | Task | Owner | Evidence / next action |
-| --- | --- | --- | --- |
-| ✓ | Audit repos/worktrees and create goal | Coordinator + agents | One primary + 29 linked worktrees; advisory workspace retained |
-| ✓ | Preserve unique work | Coordinator | 30 hash-verified ZIPs, manifest, complete Git bundle; primary edits also in named stash |
-| - | Consolidate into one checkout | Coordinator | 27 linked folders removed; docs/CI checkouts retire after integration |
-| ✓ | Merge checkout-action update #122 | Coordinator + auditor | Merged aeeae736 after checks/review |
-| - | Merge meaningful verified PRs | Coordinator + auditor | #80 current build; #121 docs; #126 CI; exact revisions must pass |
-| ✓ | Close incompatible grouped updates | Coordinator | #123/#125 closed without merge; #114 retains staged migration |
-| - | Reconcile issue descriptions | Coordinator | Correct stale content/newlines; preserve scope, dependencies and acceptance |
-| - | Populate linked Grow Project | Coordinator | Project #4 and fields created; current issue/checkpoint cards being verified |
-| - | Reduce duplicate/historical docs | Coordinator + reviewers | 100 MDs archived/removed; contracts and approval provenance retained |
-|  | Remove checked caches/temp/loose folders | Coordinator | Preserve private config/signing/user artifacts; check exact paths |
-|  | Final structure/link/Git/GitHub QA | Coordinator + reviewers | One checkout, verified recovery, actual remote outcomes |
-| ✗ | Application PR acceptance | QA / product owner | No device connected; no fake E2E pass; retain meaningful PRs |
+Status key: ✓ complete; - in progress; ✗ blocked; blank not started.
 
-## Product pipeline
+| Status | Task | Evidence / next action |
+| --- | --- | --- |
+| ✓ | Consolidate the workspace | One Grow app checkout remains. The other 29 linked worktrees were removed after preserving their unique state. The separate security-advisory repository is remediation work, not a duplicate app. |
+| ✓ | Preserve user work | 30 hash-verified snapshots, a verified Git bundle and a named stash preserve unique dirty/untracked files and history. Private config, signing material and user artifacts were retained. |
+| ✓ | Publish the current documentation baseline | PR #121 merged to RC5 as 3b2af47. Current narrative Markdown is under docs/; the broad docs ignore was removed. Required repository entry files and GitHub templates stay in their required root locations. |
+| - | Decide on older documentation snapshots | 100 historical Markdown files remain in private recovery. Issues #72 and #74 track whether a safe, useful subset should be published. The snapshots are not remote backups yet. |
+| ✓ | Remove generated Flutter build output | `flutter clean` removed build and `.dart_tool`; `/android/build/` is ignored. |
+| ✗ | Delete the remaining small Android cache folders | Direct recursive deletion was rejected by automatic approval review. The checked `.gradle`, `.kotlin`, `.claude` and `.worktrees` folders are in ignored recovery quarantine and are not deleted. |
+| ✓ | Merge verified repository PRs | #122, #80, #121 and #126 merged after their applicable exact-head checks passed. #123 and #125 were closed as incompatible grouped upgrades; duplicate main-target PR #57 is closed; #114 retains the staged migration. |
+| ✓ | Merge the CI trigger correction, PR #126 | Refreshed head 99d475a1 passed exact-head Quality Gate and Debug APK Build; merged to RC5 as 930594ae. |
+| - | Resolve remaining meaningful PRs | #90, #99, #100, #103 and #108 need current-base checks and applicable device/security acceptance. #115 remains a documentation change stacked on #90 and needs its path reconciled with the current docs layout. |
+| ✓ | Reconcile the issue backlog | All 34 existing issue descriptions were refreshed; #73, #75, #76 and #109 closed against evidence. Issues #127–#132 now record missing queue, safety, attendance, reporting, notification and pilot work. |
+| ✓ | Populate the live Grow Project | Project #4 has phase, priority, dependency, status and evidence fields for issue, checkpoint and PR work. Open issues remain open until their acceptance is met. |
+| ✗ | Complete real application acceptance | No Android device is connected. Issue #112 identifies the validation Supabase project and records Google sign-in as disabled; current provider readiness still needs confirmation. Unit/build success is not sign-in, persistence, RLS or backend E2E evidence. |
+|  | Deliver the remaining product pipeline | Follow the live issue queue: authorization and auth → profile/storage/positions → real Work Request → Manufacturing → queue/booking → maintenance/inventory → projects/events/payments → reports/admin → real E2E and release. |
+|  | Run a controlled pilot and scale review | Pilot support ownership, release readiness, backup/restore, accessibility, offline behavior and measured capacity remain unverified. |
 
-CI/repo integration → security → auth/Android → design → profile/storage/positions →
-real Work Request → Manufacturing → Queue/booking → maintenance → inventory/borrowing →
-projects/presence/visitors → events → payments/billing → reports/admin → real E2E,
-offline, backup/load/accessibility → 25–50 pilot → measured 4,000+ expansion.
+Product decisions still needed before dependent implementation: exact V1 Work Request
+categories; which categories receive a quote or charge; cancellation/refund consequences;
+machine booking, safety and concurrency semantics; verified equipment and price source;
+and a named pilot support/escalation owner. Do not reopen the cancellation-routing
+decisions already recorded in the [Work Request delta](../02_Product/WORK_REQUEST_CONTRACT_DELTA.md).
 
-Detailed tasks stay in the Project. Keep future work behind the
-[backend](../03_Database/BACKEND_SECURITY_BASELINE.md),
-[roles](../03_Database/ROLE_AND_POSITION_CONTRACT.md),
-[Storage](../03_Database/STORAGE_ACCESS_CONTRACT.md) and
-[Work Request](../02_Product/WORK_REQUEST_CONTRACT_DELTA.md) gates.
+Keep new work behind the [backend security baseline](../03_Database/BACKEND_SECURITY_BASELINE.md),
+[role contract](../03_Database/ROLE_AND_POSITION_CONTRACT.md),
+[Storage contract](../03_Database/STORAGE_ACCESS_CONTRACT.md) and
+[Work Request contract](../01_Product/06_WORK_REQUEST_IMPLEMENTATION_CONTRACT.md).
