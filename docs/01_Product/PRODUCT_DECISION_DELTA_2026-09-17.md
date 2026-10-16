@@ -1,6 +1,6 @@
 # Product decision delta — 2026-09-17
 
-Status: review candidate; reconciles decisions given by the product owner in the Codex conversation. It is not a deployed backend contract or a substitute for a reviewed charter revision.
+Status: Product-owner scope decisions recorded; implementation contracts and charter/backlog reconciliation remain open. This is not a deployed backend contract or a substitute for a reviewed charter revision.
 
 ## Why this exists
 
@@ -8,7 +8,7 @@ The approved `00_PRODUCT_CHARTER.md` (2026-08-02) and the later product-owner de
 
 | Topic | Older charter or implementation | Product-owner decision to carry forward | Consequence |
 | --- | --- | --- | --- |
-| Eligibility | College email and MEC-only mobile v1; external customers deferred | Any email may sign up. MEC members and outside students/professionals may use the app. Onboarding is mandatory, with organization/college or professional details appropriate to the person. | No email-domain eligibility gate. Keep user category/institution distinct from verified status; do not imply a person was checked by staff. |
+| Eligibility | College email and MEC-only mobile v1; external customers deferred | Any email domain may sign up. MEC members and outside students/professionals may use eligible signed-in event and fabrication/work-request flows after mandatory onboarding. External access uses verified accounts and remains subject to event/request eligibility. Public or anonymous ordering is out of scope. | No email-domain eligibility gate. Keep user category/institution distinct from email verification; do not imply a person was checked by staff. App access does not grant operational permissions. |
 | Identity | College identity treated as signup prerequisite | Sign in first, complete required onboarding, then enter Home. MEC roll number and college details are collected where applicable; optional profile enrichment remains editable. | Authenticated does not mean institution-verified or machine-authorized. |
 | Navigation | Home / Akathalam / Profile | Home / Lab / Profile. Remove Akathalam from the bottom bar. | Three stable destinations, with Projects, Events, Work Requests, and operations reached contextually. |
 | Lab model | IDEA Lab and Fab Lab listed as labs | One managed IDEA Lab + Fab Lab entity with two physical rooms. IDEA Lab primarily has components and some machines; Fab Lab primarily has fabrication machines. | Do not invent separate organizations, room inventory, or machine mapping until supplied. |

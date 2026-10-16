@@ -25,12 +25,16 @@ checks passed.
 PR #126 updates the stacked-base CI coverage. Its refreshed head 99d475a1 passed the
 exact-head Quality Gate and Debug APK Build, then merged to RC5 as 930594ae. PRs #123
 and #125 were closed as incompatible grouped upgrades; duplicate main-target PR #57
-is closed while RC5 PR #56 remains merged; #114 records the staged migration.
+is closed while RC5 PR #56 remains merged; #114 records the staged migration. PR #133
+merged this updated delivery baseline to RC5 as fb01f40 after its exact-head Quality
+Gate and Debug APK Build passed.
 
 Meaningful product PRs #90, #99, #100, #103 and #108 remain open for current-base
-checks and applicable real device/security acceptance. Documentation PR #115 remains
-stacked on #90 and needs its changed path reconciled with the current docs layout.
-Historical green checks do not validate a changed base or revision.
+checks and applicable real device/security acceptance. The high-level external
+participant scope from draft PR #115 is now recorded in the canonical ADR and system
+boundary docs below; issues #93 and #95 remain open for detailed eligibility, request
+fields, safety/routing, payment, privacy, support contracts, and charter/backlog
+reconciliation. Historical green checks do not validate a changed base or revision.
 
 ## Documentation and workspace
 
@@ -64,6 +68,12 @@ requester supplies a reason and the head approves or denies. Pending/denied
 cancellation preserves status. Operations Head approves updated stock/prices.
 Students request/book work; Machine Heads operate fabrication machines. See the
 [current Work Request delta](../02_Product/WORK_REQUEST_CONTRACT_DELTA.md).
+
+Verified-email external students and professionals may use eligible event and
+fabrication/work-request flows after onboarding. This scope does not create staff
+verification or machine/operations authority. Issue #93 remains open for event
+eligibility, request fields and routing, safety, payment, privacy, and support rules;
+issue #95 tracks charter/backlog reconciliation.
 
 Still needed at dependent gates: exact V1 Work Request categories, quote/charge
 mapping, cancellation/refund consequences, booking/safety/concurrency rules, an

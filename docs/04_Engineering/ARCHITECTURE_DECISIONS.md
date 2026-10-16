@@ -1,12 +1,12 @@
 # Grow~ Architecture Decisions
 
-Historical decision index retained for provenance. Current reviewed narrative is
-versioned under docs. Later product directions are recorded in the
-[September delta](../01_Product/PRODUCT_DECISION_DELTA_2026-09-17.md) and
-[Work Request delta](../02_Product/WORK_REQUEST_CONTRACT_DELTA.md).
-ADR-006 external-participant scope conflicts remain tracked in #93/#95; this
-cleanup does not invent approval or silently resolve them. Read the current
-baseline and contracts before using historical accepted labels to implement behavior.
+This decision index preserves provenance. Later product-owner decisions are
+recorded in the [September delta](../01_Product/PRODUCT_DECISION_DELTA_2026-09-17.md)
+and [Work Request delta](../02_Product/WORK_REQUEST_CONTRACT_DELTA.md). The
+high-level V1 scope permits verified-email external students and professionals to
+use eligible event and fabrication/work-request flows. Detailed eligibility,
+fields, routing, safety, payment, privacy and support remain open in #93/#95. This
+scope decision does not grant operational permissions or authorize schema/RLS changes.
 
 ## ADR-001: Use Work Request Instead Of Order
 
@@ -57,14 +57,23 @@ and compliance complexity.
 Consequence: V1 payment records should support manual verification and audit
 history.
 
-## ADR-006: External Customer Flow Is Outside Mobile App V1
+## ADR-006: Signed-In External Participant Access Is In Mobile V1
 
-Status: Accepted
+Status: Accepted at high-level product scope; implementation contracts remain pending.
 
-Reason: External ordering has different identity, payment, support, and public
-UX requirements.
+Reason: The product owner approved verified-email onboarding for external students
+and professionals, their participation in eligible events, and their ability to
+submit fabrication/work requests. The scope decision is recorded in [issue #93](https://github.com/NAVANEETHVVINOD/Grow-by-IL/issues/93).
 
-Consequence: External customers may be handled by a future website/portal.
+Decision: Eligible external participants may create an account, complete required
+onboarding, and use the signed-in event and fabrication/work-request flows. Event
+eligibility and request handling follow their product contracts. Public or anonymous
+ordering remains outside V1.
+
+Consequence: Define event audience/capacity, external request fields, safety and role
+routing, payments, privacy, and support/abuse boundaries in reviewed contracts before
+implementation. This ADR does not authorize a role, schema, RLS, or client-permission
+change.
 
 ## ADR-007: Phase-Gated Architecture Before Persistence
 
