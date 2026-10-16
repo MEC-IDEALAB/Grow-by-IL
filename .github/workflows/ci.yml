@@ -6,6 +6,8 @@ on:
       - main
       - develop
       - rc5-release-candidate
+      - feat/home-lab-profile-navigation
+      - chore/production-hardening
   push:
     branches:
       - main
