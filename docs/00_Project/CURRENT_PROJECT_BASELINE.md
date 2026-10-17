@@ -67,7 +67,7 @@ contracts, and charter/backlog reconciliation.
 
 Issues #84, #91 and #92 and their Project #4 cards now record the current release,
 Dependabot-branch and navigation evidence. Issue #114 continues to track the staged
-migration. Project #4 currently contains 61 items: 20 Done, 14 In Progress and 27 Todo.
+migration. Project #4 currently contains 61 items: 20 Done, 9 In Progress, 26 Todo and 6 Blocked.
 
 ## Documentation and workspace
 
