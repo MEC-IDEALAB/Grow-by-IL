@@ -1,6 +1,6 @@
 # Current Grow project baseline
 
-Updated: 17 October 2026. Evidence record; not release approval.
+Updated: 18 October 2026. Evidence record; not release approval.
 
 [Repository](https://github.com/NAVANEETHVVINOD/Grow-by-IL) ·
 [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4) ·
@@ -9,11 +9,12 @@ Updated: 17 October 2026. Evidence record; not release approval.
 
 ## Repository and delivery
 
-The 17 October workspace review found one Grow application Git checkout at `Grow/grow`
-and no second Grow application repository in the outer workspace. Earlier consolidation
-notes describe linked worktrees and local recovery preservation; those historical notes
-do not make recovery disposable. The security-advisory repository remains separate
-remediation work.
+The 18 October workspace review found one Grow application Git checkout at `Grow/grow`
+and one Git worktree. A remote repository inventory also found a second Grow-named
+near-copy with unreconciled pull-request work. Its contents have not been fully
+reconciled, so it cannot yet be called redundant or safe to delete; detailed disposition
+evidence is tracked in private Project #4. Earlier consolidation notes describe local
+recovery preservation; those historical notes do not make recovery disposable.
 
 GitHub `main` remains the default branch; `rc5-release-candidate` is the current
 integration base for the remaining product drafts. Neither branch implies a production
@@ -47,23 +48,26 @@ RC5 as fb01f40 after its exact-head Quality Gate and Debug APK Build passed. PR 
 merged to RC5 as 39aa2587 after its exact-head Quality Gate and Debug APK Build
 passed; superseded draft PR #115 is closed.
 
-The five remaining open PRs are drafts with no submitted GitHub review. At the 17
-October check, #90 head `13d9d96d44489b3250431f9583d630b91b6f935a` was DIRTY/conflicting
-with RC5; #99 head `772e808cb1974fad497d30782a62febae302287f`, #103 head
+The five remaining open PRs are drafts with no submitted GitHub review. The live 18
+October audit found #90 head `13d9d96d44489b3250431f9583d630b91b6f935a` DIRTY against
+RC5 and blocked by unresolved release-security/configuration review; detailed findings
+are kept in the private Project #4 card. PR #99 head
+`772e808cb1974fad497d30782a62febae302287f`, #103 head
 `d80a96ab68a1ad33b7a7fdd9446b66be5ea3cd04`, and #108 head
-`a608aa136b084ac5de7ca3f9a8fa9f21d20267d4` were BEHIND RC5. PR #100 head
-`ed37a92d601c9ee6efb03fc951463a15058f8c23` is stacked on #99 and has no required
-Quality Gate or Debug APK result. Reconcile the bases, run current exact-head checks,
-obtain independent review, and complete applicable device/security acceptance before
-merge. Older green checks do not validate a refreshed base. PR #134 ports the useful
-high-level external-participant scope from draft #115 into the canonical ADR and
-system-boundary docs; #115 is closed as superseded. Issues #93 and #95 remain open for
-detailed eligibility, request fields, safety/routing, payment, privacy, support
+`a608aa136b084ac5de7ca3f9a8fa9f21d20267d4` are BEHIND RC5. Their old Quality Gate
+and Debug APK results must be rerun after updating the base. Bounded independent
+reviews of #103 and #108 found no reproducible code defect, but current-head checks,
+formal review and applicable device/configuration acceptance remain incomplete. PR
+#100 head `ed37a92d601c9ee6efb03fc951463a15058f8c23` is stacked on #99 and has no
+required Quality Gate or Debug APK result. None is merge-ready. PR #134 ports the
+useful high-level external-participant scope from draft #115 into the canonical ADR
+and system-boundary docs; #115 is closed as superseded. Issues #93 and #95 remain open
+for detailed eligibility, request fields, safety/routing, payment, privacy, support
 contracts, and charter/backlog reconciliation.
 
-Issue #91 and #114 descriptions and their Project #4 cards were reconciled with the
-Dependabot outcomes and staged migration state. Project #4 currently contains 61
-items: 20 Done, 14 In Progress and 27 Todo.
+Issues #84, #91 and #92 and their Project #4 cards now record the current release,
+Dependabot-branch and navigation evidence. Issue #114 continues to track the staged
+migration. Project #4 currently contains 61 items: 20 Done, 14 In Progress and 27 Todo.
 
 ## Documentation and workspace
 
@@ -76,13 +80,16 @@ are not byte-identical. This is not a count of all `.local/recovery`. Issues #72
 track whether safe, useful historical material should be published. Local recovery is
 not an off-machine backup, and its disposition remains pending.
 
-The reviewed outer workspace contains the single app checkout at `Grow/grow`; no
-second Grow Git repository was found. A broad flatten/move command was rejected by
-runtime policy, so no folders were moved in that review.
+The reviewed outer workspace contains the single app checkout at `Grow/grow`; the
+separate remote repository remains under review as described above. A broad
+flatten/move command was rejected by runtime policy, so no folders were moved in that
+review.
 Generated ignored files `android/hs_err_pid8548.log` and
-`supabase/.temp/cli-latest` were removed. The empty `supabase/.temp` directory remains
-because directory removal was rejected. Preserve `.local`, secrets and recovery data;
-do not treat this as proof that all generated files or caches are gone.
+`supabase/.temp/cli-latest` were removed. The empty `supabase/.temp` directory remains;
+an exact removal attempt was rejected by runtime policy on 18 October. The ignored-file
+inventory also contains `.env`, `.local`, Firebase/signing files, and Android local
+configuration; preserve those user and setup files. Preserve `.local`, secrets and
+recovery data; do not treat this as proof that all generated files or caches are gone.
 
 ## Product implementation boundary
 
@@ -120,7 +127,10 @@ Issue #88 requires live-versus-repository schema, grants, RLS, functions and mig
 reconciliation, followed by staging negative-authorization tests. Historical 28P01 is
 not asserted as a current verified outage. Issue #112 identifies the validation
 Supabase project and records Google sign-in as disabled; current provider readiness
-still needs confirmation. No Android device is connected for this acceptance run.
+still needs confirmation. Flutter 3.41.9/Dart 3.11.5 and Android SDK/ADB are installed
+outside PATH, but no AVD is configured and no Android device is connected for this
+acceptance run. An initial emulator-list read was corrected after a diagnostic line was
+mistaken for an AVD name. No app was launched or installed.
 Provider/email setup, Android acceptance, profile/storage privacy and scoped position
 authority remain prerequisites to operational backend expansion. The Project tracks
 the issue dependencies and evidence.
