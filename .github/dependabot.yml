@@ -1,6 +1,21 @@
 version: 2
-# Version-update schedules intentionally disabled (2026-09-03) to stop weekly
-# dependabot PRs (github-actions/pub/gradle). Automated security fixes and
-# vulnerability alerts are unaffected by this file and are configured
-# separately in repo Settings > Code security.
-updates: []
+# Keep each ecosystem entry valid while stopping routine version-update PRs.
+# Dependabot security updates and vulnerability alerts are configured separately.
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "pub"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
+
+  - package-ecosystem: "gradle"
+    directory: "/android"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 0
