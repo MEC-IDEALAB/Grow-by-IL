@@ -5,7 +5,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 0
     groups:
       actions-updates:
         patterns: ["*"]
@@ -15,7 +15,7 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 0
     groups:
       flutter-updates:
         patterns: ["*"]
@@ -25,7 +25,7 @@ updates:
     directory: "/android"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 5
+    open-pull-requests-limit: 0
     groups:
       android-updates:
         patterns: ["*"]
