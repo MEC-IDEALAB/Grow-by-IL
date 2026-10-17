@@ -1,12 +1,17 @@
 # Grow documentation
 
-Updated: 16 October 2026. Single documentation index.
+Updated: 17 October 2026. Single documentation index.
 
 - [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4): task status, phase, priority, blockers and next actions.
 - [Current baseline](00_Project/CURRENT_PROJECT_BASELINE.md).
 - [Task handoff](00_Project/GROW_V1_TASK_BOARD.md).
 - [Repository layout and recovery](00_Project/REPOSITORY_CONSOLIDATION.md).
 - [CI investigation and correction evidence](05_DevOps/P0_03_CI_INVESTIGATION.md).
+
+The verified delivery state is recorded in the [baseline](00_Project/CURRENT_PROJECT_BASELINE.md)
+and [handoff](00_Project/GROW_V1_TASK_BOARD.md): PR #138 repaired the Dependabot
+configuration and disabled routine version-update PRs; five meaningful drafts remain
+open behind merge, review, or current-base gates.
 
 ## Product and approval provenance
 
@@ -46,7 +51,16 @@ Reviewed non-sensitive docs are versioned. Credentials, signing files, private s
 evidence, raw snapshots and recovery archives remain ignored. The advisory repository
 is separate remediation work, not a duplicate app to delete.
 
-100 historical/duplicate active-tree Markdown files were hash-verified into a private
-local ZIP before removal; prior Git commits retain reviewed public history. Other
-worktree originals/configurations have separate verified recovery snapshots. Recovery
-is local, not an off-machine backup. Do not restore old competing roadmaps as live boards.
+The 17 October workspace review found one Grow application checkout nested under the
+outer `Grow/` workspace and no second Grow Git repository. The scoped
+`.local/recovery/2026-10-16/original-primary-docs` inventory contains 109 Markdown
+files among 113 total files. Seven paths overlap the current `docs/` tree; files at
+those paths are not byte-identical. This is not a count of all `.local/recovery`.
+The recovery disposition remains pending; preserve `.local`, secrets, and user data.
+Recovery is local, not an off-machine backup. Do not restore old competing roadmaps as
+live boards.
+
+The generated files `android/hs_err_pid8548.log` and `supabase/.temp/cli-latest` were
+removed after confirming they were ignored/generated. The now-empty `supabase/.temp`
+directory remains because directory removal was rejected. No broad cache cleanup was
+completed; only the two exact files above were removed.

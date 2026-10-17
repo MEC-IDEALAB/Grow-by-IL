@@ -9,18 +9,34 @@ Updated: 17 October 2026. Evidence record; not release approval.
 
 ## Repository and delivery
 
-There is one primary Grow application checkout. The extra local directories were
-linked Git worktrees, not separate application repositories. Unique dirty,
-untracked and ignored state was preserved before removing those checkouts. The
-security-advisory repository is separate remediation work and remains separate.
+The 17 October workspace review found one Grow application Git checkout at `Grow/grow`
+and no second Grow application repository in the outer workspace. Earlier consolidation
+notes describe linked worktrees and local recovery preservation; those historical notes
+do not make recovery disposable. The security-advisory repository remains separate
+remediation work.
 
-GitHub `main` remains the default branch; `rc5-release-candidate` is the active
-product integration target. Neither branch implies a production release. PR #122
-merged to main as aeeae736 after applicable quality, schema and Android build checks
-passed. PR #80 merged to main as 1fc7db0 after exact-head Quality Gate (CI),
+GitHub `main` remains the default branch; `rc5-release-candidate` is the current
+integration base for the remaining product drafts. Neither branch implies a production
+release. PR #122 merged to main as aeeae736 after applicable quality, schema and Android
+build checks passed. PR #80 merged to main as 1fc7db0 after exact-head Quality Gate (CI),
 Android Production Build and schema verification passed. PR #121 merged the current
 documentation baseline to RC5 as 3b2af47 after its exact-head quality and Debug APK
 checks passed.
+
+PR #138 repaired `.github/dependabot.yml` and merged to main on 17 October 2026 as
+`0a1020952c157e89193f9498b4493efe8dfd6ee7` from exact head
+`01f9812aabd052af716b7dca0d90a53ea5033334`. Quality Gate (CI), Android Production
+Build and Verify Schema Contract passed on that head. GitHub Release and the bot-only
+Dependabot check were skipped. The valid GitHub Actions, Pub and Gradle entries each
+set `open-pull-requests-limit: 0`, disabling routine version-update pull requests for
+those ecosystems. Vulnerability alerts and automated security fixes are separate
+repository settings and remain disabled.
+
+Dependabot PR #136 was closed unmerged: its Android Production Build failed because
+AGP 9.4.1 is incompatible with the current Kotlin Android plugin. PR #137 was closed
+unmerged: Quality Gate failed because `riverpod_lint` 3.1.9 requires Dart 3.13 while
+CI uses Dart 3.11.5; its Android build was skipped. No bundled dependency upgrades
+were merged.
 
 PR #126 updates the stacked-base CI coverage. Its refreshed head 99d475a1 passed the
 exact-head Quality Gate and Debug APK Build, then merged to RC5 as 930594ae. PRs #123
@@ -31,29 +47,42 @@ RC5 as fb01f40 after its exact-head Quality Gate and Debug APK Build passed. PR 
 merged to RC5 as 39aa2587 after its exact-head Quality Gate and Debug APK Build
 passed; superseded draft PR #115 is closed.
 
-Draft PR #90 currently conflicts with RC5; #99, #103 and #108 are behind RC5; #100
-is stacked on #99 and has only a skipped Dependabot check, with no required Quality
-Gate or Debug APK result. Reconcile these bases, rerun current exact-head checks, get
-independent review, and complete applicable device/security acceptance before merge.
-Historic green checks do not validate the updated RC5 base. PR #134 ports the useful
+The five remaining open PRs are drafts with no submitted GitHub review. At the 17
+October check, #90 head `13d9d96d44489b3250431f9583d630b91b6f935a` was DIRTY/conflicting
+with RC5; #99 head `772e808cb1974fad497d30782a62febae302287f`, #103 head
+`d80a96ab68a1ad33b7a7fdd9446b66be5ea3cd04`, and #108 head
+`a608aa136b084ac5de7ca3f9a8fa9f21d20267d4` were BEHIND RC5. PR #100 head
+`ed37a92d601c9ee6efb03fc951463a15058f8c23` is stacked on #99 and has no required
+Quality Gate or Debug APK result. Reconcile the bases, run current exact-head checks,
+obtain independent review, and complete applicable device/security acceptance before
+merge. Older green checks do not validate a refreshed base. PR #134 ports the useful
 high-level external-participant scope from draft #115 into the canonical ADR and
 system-boundary docs; #115 is closed as superseded. Issues #93 and #95 remain open for
 detailed eligibility, request fields, safety/routing, payment, privacy, support
 contracts, and charter/backlog reconciliation.
 
+Issue #91 and #114 descriptions and their Project #4 cards were reconciled with the
+Dependabot outcomes and staged migration state. Project #4 currently contains 61
+items: 20 Done, 14 In Progress and 27 Todo.
+
 ## Documentation and workspace
 
 The current narrative Markdown is consolidated under `docs/`; the broad `docs/`
 ignore is removed. Short root pointers, repository-required files and GitHub templates
-remain at their required root locations. The active set has 26 Markdown documents.
-One hundred older Markdown files and unique worktree state remain in private local
-recovery; issues #72 and #74 track whether safe, useful historical material should be
-published. Local recovery is not an off-machine backup.
+remain at their required root locations. The scoped inventory of
+`.local/recovery/2026-10-16/original-primary-docs` contains 109 Markdown files among
+113 total files. Seven paths overlap the current `docs/` tree; files at those paths
+are not byte-identical. This is not a count of all `.local/recovery`. Issues #72 and #74
+track whether safe, useful historical material should be published. Local recovery is
+not an off-machine backup, and its disposition remains pending.
 
-Flutter build output and `.dart_tool` were removed. The remaining small Android cache
-folders are in ignored recovery quarantine; direct recursive removal was blocked by
-automatic approval review. This local cleanup does not alter the remote release or
-branch-protection settings.
+The reviewed outer workspace contains the single app checkout at `Grow/grow`; no
+second Grow Git repository was found. A broad flatten/move command was rejected by
+runtime policy, so no folders were moved in that review.
+Generated ignored files `android/hs_err_pid8548.log` and
+`supabase/.temp/cli-latest` were removed. The empty `supabase/.temp` directory remains
+because directory removal was rejected. Preserve `.local`, secrets and recovery data;
+do not treat this as proof that all generated files or caches are gone.
 
 ## Product implementation boundary
 
