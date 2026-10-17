@@ -1,12 +1,13 @@
 # Repository layout and recovery
 
-Updated: 17 October 2026. Current workspace evidence and historical recovery record.
+Updated: 18 October 2026. Current workspace evidence and historical recovery record.
 
 The reviewed outer `Grow/` workspace contains one Grow application checkout at
-`Grow/grow`. No second Grow Git repository was found. The separate security-advisory
-repository is remediation work, not a duplicate app to delete. A broad flatten/move
-command was rejected by runtime policy during this review, so no folders were moved.
-Preserve the current checkout path and user recovery data.
+`Grow/grow` and one active worktree. Account-level repository reconciliation remains
+open; detailed disposition is tracked in private Project #4. Preserve any remote
+repository until unique work is reconciled and a safe disposition is recorded. A broad
+flatten/move command was rejected by runtime policy during this review, so no folders
+were moved. Preserve the current checkout path and user recovery data.
 
 ## Current checkout layout
 
@@ -72,12 +73,12 @@ published. Old alone never means safe to destroy.
 
 The ignored/generated files `android/hs_err_pid8548.log` and
 `supabase/.temp/cli-latest` were removed. The now-empty `supabase/.temp` directory
-remains because directory removal was rejected. No broad cache deletion or flatten/move
-was completed in the 17 October review. Earlier notes about Flutter build output and
-small Android cache directories are historical; the prior statement that cache
-directories are currently in ignored recovery quarantine was not reverified and must
-not be used as current cleanup status. Preserve `.local`, secrets, recovery data,
-private configs, signing material and user media.
+remains because its exact removal was rejected by runtime policy on 18 October. No
+broad cache deletion or flatten/move was completed as of this update. Earlier notes
+about Flutter build output and small Android cache directories are historical; the
+prior statement that cache directories are currently in ignored recovery quarantine
+was not reverified and must not be used as current cleanup status. Preserve `.local`,
+secrets, recovery data, private configs, signing material and user media.
 
 Keep branches until their unique product value is integrated or explicitly retired.
 Never rewrite history or delete a remote repository as a folder-cleanup shortcut. The

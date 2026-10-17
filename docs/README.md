@@ -1,6 +1,6 @@
 # Grow documentation
 
-Updated: 17 October 2026. Single documentation index.
+Updated: 18 October 2026. Single documentation index.
 
 - [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4): task status, phase, priority, blockers and next actions.
 - [Current baseline](00_Project/CURRENT_PROJECT_BASELINE.md).
@@ -51,8 +51,10 @@ Reviewed non-sensitive docs are versioned. Credentials, signing files, private s
 evidence, raw snapshots and recovery archives remain ignored. The advisory repository
 is separate remediation work, not a duplicate app to delete.
 
-The 17 October workspace review found one Grow application checkout nested under the
-outer `Grow/` workspace and no second Grow Git repository. The scoped
+The 18 October local workspace review found one Grow application checkout and one
+worktree nested under the outer `Grow/` workspace. Account-level repository
+reconciliation remains open; its disposition is tracked in private Project #4, and
+no remote repository is disposable until unique work is reconciled. The scoped
 `.local/recovery/2026-10-16/original-primary-docs` inventory contains 109 Markdown
 files among 113 total files. Seven paths overlap the current `docs/` tree; files at
 those paths are not byte-identical. This is not a count of all `.local/recovery`.
