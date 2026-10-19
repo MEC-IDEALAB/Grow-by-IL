@@ -9,16 +9,19 @@ Updated: 20 October 2026. Canonical documentation index.
 - [Approval provenance](00_Project_Management/APPROVAL_LOG.md).
 - [CI investigation and correction evidence](05_DevOps/P0_03_CI_INVESTIGATION.md).
 
-The 20 October baseline records six open PRs: product drafts #90, #99, #100, #103
-and #108, plus documentation PR #146. None of the five product drafts is merge-ready
-or proven unwanted. PRs #144 (main) and #145 (RC5)
-merged after exact-head required checks and independent review; `.github/dependabot.yml`
-is absent from both protected branch trees. Post-merge run #39310512505 on main and
-run #39310529054 on RC5 both completed successfully, including the Android Production
-Build and Debug APK Build respectively. PR #108 has a locally verified recovery
-patch in a stash, but its remote head and hosted checks remain unchanged. The generated
-GitHub-managed workflow remains listed active; no run after the config-removal merges
-appears as of 20 October. Issue #143 tracks the next weekly observation.
+The 20 October baseline records five open PRs: product drafts #90, #99, #100, #103
+and #108. None is merge-ready or proven unwanted. Documentation PR #146 merged to
+RC5 as `503db777b5f066fabac570ee08dfe2c70ef95a3c` from exact head
+`b40e4a7e1583bad8c3e6b2c7b606eeda2fc9a3d4`. Its exact-head Quality Gate and Debug APK
+Build passed in run #39316875608; post-merge run #39318103268 passed both required jobs.
+PRs #144 (main) and #145 (RC5) also merged after exact-head required checks and
+independent review; `.github/dependabot.yml` is absent from both protected branch trees.
+Post-merge run #39310512505 on main and run #39310529054 on RC5 completed successfully.
+PR #108 has a locally verified recovery patch in a stash, but its remote head and hosted
+checks remain unchanged. The generated GitHub-managed workflow remains listed active;
+no run after the config-removal merges appears as of 20 October. Issue #143 tracks the
+next weekly observation. Project #4 is the live queue (67 cards: 24 Done, 5 In Progress,
+7 Todo and 31 Blocked); the task board is a dated snapshot.
 
 ## Product and approval provenance
 
