@@ -9,11 +9,13 @@ Updated: 20 October 2026. Canonical documentation index.
 - [Approval provenance](00_Project_Management/APPROVAL_LOG.md).
 - [CI investigation and correction evidence](05_DevOps/P0_03_CI_INVESTIGATION.md).
 
-The 20 October baseline records five open PRs: product drafts #90, #99, #100, #103
-and #108. None is merge-ready or proven unwanted. PRs #144 (main) and #145 (RC5)
+The 20 October baseline records six open PRs: product drafts #90, #99, #100, #103
+and #108, plus documentation PR #146. None of the five product drafts is merge-ready
+or proven unwanted. PRs #144 (main) and #145 (RC5)
 merged after exact-head required checks and independent review; `.github/dependabot.yml`
-is absent from both protected branch trees. Post-merge Android Production Build and
-Debug APK Build runs remain in progress. PR #108 has a locally verified recovery
+is absent from both protected branch trees. Post-merge run #39310512505 on main and
+run #39310529054 on RC5 both completed successfully, including the Android Production
+Build and Debug APK Build respectively. PR #108 has a locally verified recovery
 patch in a stash, but its remote head and hosted checks remain unchanged. The generated
 GitHub-managed workflow remains listed active; no run after the config-removal merges
 appears as of 20 October. Issue #143 tracks the next weekly observation.
