@@ -13,7 +13,7 @@ The primary checkout is now rooted at F:\kannan\projects\Grow; git rev-parse --s
 
 GitHub main is at `3015c4ef6c6963c265fd644689fc8dd4fc2042be`; `rc5-release-candidate` is at `8dc79766f06454af2137ea25e75b79aad3437d56`. Project #4 currently has 67 items: 23 Done, 6 In Progress, 7 Todo and 31 Blocked. The repository has 37 open issues and six open pull requests: product drafts #90, #99, #100, #103 and #108, plus documentation PR #146. Narrative project docs are tracked under `docs/`; PR #146 is tracked In Progress/Foundation/P1. Its last observed head (`e9140aa`) passed the RC5 Quality Gate and Debug APK Build; the Release APK Build was skipped. Each new PR head must pass the required gates before merge.
 
-The second Grow-named GitHub repository is retained. Its separate PR #2 contains unreconciled authentication work that has not been proven redundant or safely integrated. Do not delete it until its unique work is reconciled or explicitly abandoned. Sibling directories under F:\kannan\projects are separate projects and were not changed.
+The second Grow-named GitHub repository is retained pending review. Do not delete it until its contents are reconciled against the primary repository and any unique work is preserved or explicitly abandoned. Sibling directories under F:\kannan\projects are separate projects and were not changed.
 
 ## Pull requests and verification
 

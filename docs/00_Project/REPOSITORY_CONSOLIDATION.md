@@ -12,8 +12,9 @@ rejected by the execution policy.
 
 The outer workspace contained exactly one child checkout before the move; no sibling
 folder was moved. Other directories under F:\kannan\projects are separate projects.
-The second Grow-named GitHub repository is also separate and remains preserved because
-its PR #2 contains authentication work that has not been reconciled.
+The second Grow-named GitHub repository is separate and remains preserved pending review.
+Compare its contents against the primary repository and preserve or explicitly abandon
+any unique work before deletion.
 
 The following ignored generated targets were verified before cleanup: .dart_tool,
 root build, empty supabase/.temp, and .flutter-plugins-dependencies. The execution
