@@ -1,86 +1,84 @@
 # Repository layout and recovery
 
-Updated: 18 October 2026. Current workspace evidence and historical recovery record.
+Updated: 20 October 2026. Current workspace evidence and historical recovery record.
 
-The reviewed outer `Grow/` workspace contains one Grow application checkout at
-`Grow/grow` and one active worktree. Account-level repository reconciliation remains
-open; detailed disposition is tracked in private Project #4. Preserve any remote
-repository until unique work is reconciled and a safe disposition is recorded. A broad
-flatten/move command was rejected by runtime policy during this review, so no folders
-were moved. Preserve the current checkout path and user recovery data.
+## Current checkout
 
-## Current checkout layout
+The primary checkout was moved from F:\kannan\projects\Grow\grow to
+F:\kannan\projects\Grow. Git confirms the new root and one active worktree. The move
+preserved .git, .env, .local, tracked and ignored user files, retained branches and the
+recovery stash. The old grow/ directory is empty and remains because deletion was
+rejected by the execution policy.
 
-```text
-Grow/
-  grow/                 one primary Git checkout
-    .git/               common history, retained refs and stash
-    .github/            workflows and provider-required templates
-    android/            platform source; generated outputs ignored
-    assets/             app assets
-    docs/               current narrative docs/contracts/evidence
-    integration_test/   integration acceptance sources
-    lib/                Flutter source
-    test/               unit/widget tests
-    .local/             ignored recovery and local artifacts
-    README.md           project entry point
-    SECURITY.md         disclosure/security entry point
-    CONTRIBUTING.md     contribution entry point
-    CODEOWNERS          provider entry point
-    pubspec.yaml        manifest
-    pubspec.lock        reproducible dependency resolution
-```
+The outer workspace contained exactly one child checkout before the move; no sibling
+folder was moved. Other directories under F:\kannan\projects are separate projects.
+The second Grow-named GitHub repository is separate and remains preserved pending review.
+Compare its contents against the primary repository and preserve or explicitly abandon
+any unique work before deletion.
 
-Required agent/skill/governance entry files remain discoverable. Root governance can
-be concise pointers to canonical docs. Do not move .github templates into docs.
+The following ignored generated targets were verified before cleanup: .dart_tool,
+root build, empty supabase/.temp, and .flutter-plugins-dependencies. The execution
+policy rejected deletion; all four remain. No alternate deletion method was used.
+android/build/reports/problems/problems-report.html is absent from this checkout and
+HEAD; it was not recovered or preserved by this move. .env,
+.local, Firebase/signing configuration and recovery data remain untouched.
+
+    Grow/                         primary Git checkout and Flutter project root
+      .git/                       history, refs and recovery stash
+      .github/                    workflows and provider-required templates
+      android/                    Android source and configuration
+      assets/                     application assets
+      docs/                       current narrative docs and contracts
+      integration_test/           integration acceptance sources
+      lib/                        Flutter source
+      supabase/                   backend contracts and configuration
+      test/                       unit/widget tests
+      .env                        local environment configuration (preserved)
+      .local/                     private recovery and local artifacts (preserved)
+      README.md                   project entry point
+      SECURITY.md                 disclosure/security entry point
+      CONTRIBUTING.md             contribution entry point
+      CODEOWNERS                  provider entry point
+      pubspec.yaml                package manifest
+      pubspec.lock                reproducible dependency resolution
+      grow/                       empty former checkout shell; removal blocked
+
+Narrative Markdown is versioned under docs/; docs/ is not ignored. Required repository
+entry files, root governance pointer stubs and GitHub templates remain at their
+required locations.
+
+## PR #108 recovery work
+
+The local branch fix/pr108-recovery-marker contains an uncommitted recovery-hardening
+patch saved in stash@{1}; stash@{0} preserves the documentation refresh. The local focused tests and targeted analysis passed, and
+independent review accepted the cleanup ordering. The remote PR head remains
+a608aa136b084ac5de7ca3f9a8fa9f21d20267d4, behind RC5; no code was committed or
+pushed. Hosted checks and device/provider/backend acceptance remain outstanding.
+
+That source branch also contains the dated docs/02_Product/AUTH_PROFILE_CONTRACT.md
+snapshot. It was not copied into canonical docs because it overlaps newer identity,
+provider and security contracts and does not represent the reviewed recovery behavior.
+Keep the source branch until its unique work is explicitly reconciled.
 
 ## Historical recovery record
 
-The earlier 16 October consolidation record says 30 original checkouts were inventoried:
-one primary checkout and 29 linked worktrees. It records that dirty tracked files,
-non-generated untracked/ignored files and discovered local configs were copied into
-`.local/recovery/2026-10-16/` before linked worktrees were removed, with file/ZIP SHA-256
-verification. It also records retained branches, a recovery ref for detached `pr64-test`,
-a verified `all-refs.bundle`, and the named stash `recovery: original primary auth UI
-work before 2026-10-16 consolidation` (object
-`7d21c264f8ee4d196785e2e5f0872ed94f9cffa4`). These are historical consolidation facts;
-the 17 October review separately confirmed only the current nested application checkout
-and did not repeat every historical hash check.
+The 16 October consolidation inventory recorded one primary checkout and 29 linked
+worktrees, with dirty tracked files, non-generated untracked/ignored files and local
+configurations copied under .local/recovery/2026-10-16/ before worktree removal.
+It recorded retained branches, a recovery ref for detached pr64-test, an
+all-refs.bundle, and the named recovery stash. Those are historical facts; this
+20 October operation moved the current checkout and did not repeat every archived
+hash check.
 
-The scoped `.local/recovery/2026-10-16/original-primary-docs` inventory contains 109
-Markdown files among 113 total files. Seven paths overlap the current `docs/` tree;
-files at those paths are not byte-identical. This is not a count of all `.local/recovery`,
-which also contains user recovery data. Recovery may contain credentials or signing
-material: never attach it to public issues or PRs. It is local, not an off-machine backup.
-The disposition of `.local/recovery` remains pending; preserve it until that review is
-complete.
-
-The earlier recovery manifest maps original roots and heads to archived files and
-hashes. Snapshots may contain credentials or signing material; never attach them to
-public issues or PRs. Private security-advisory work is retained separately. To restore
-work, inspect retained branches or the named stash without dropping it; extract only a
-chosen ZIP into a private temporary directory; compare its manifest hashes; then restore
-reviewed files. Never apply every old auth patch over newer code blindly.
-
-The current narrative Markdown is under `docs/`; `docs/` is no longer broadly ignored.
-The earlier consolidation record counted 100 historical Markdown files in a private
-archive; the scoped `.local/recovery/2026-10-16/original-primary-docs` inventory counted
-109 Markdown files among 113 total files. Seven paths overlap the current `docs/` tree,
-but files at those paths are not byte-identical.
-These are dated, scoped inventories, not proof that all old material is redundant or
-safe to publish. Issues #72 and #74 track whether a safe, useful subset should be
-published. Old alone never means safe to destroy.
-
-The ignored/generated files `android/hs_err_pid8548.log` and
-`supabase/.temp/cli-latest` were removed. The now-empty `supabase/.temp` directory
-remains because its exact removal was rejected by runtime policy on 18 October. No
-broad cache deletion or flatten/move was completed as of this update. Earlier notes
-about Flutter build output and small Android cache directories are historical; the
-prior statement that cache directories are currently in ignored recovery quarantine
-was not reverified and must not be used as current cleanup status. Preserve `.local`,
-secrets, recovery data, private configs, signing material and user media.
+The scoped .local/recovery/2026-10-16/original-primary-docs inventory contains 109
+Markdown files among 113 total files. Seven paths overlap the current docs/ tree,
+but files at those paths are not byte-identical. This is not an inventory of all
+.local/recovery. Recovery may contain credentials or signing material; never attach
+it to public issues or PRs. It is not an off-machine backup. Issues #72 and #74 track
+whether any safe historical material should be published. Preserve all recovery data
+until its disposition is reviewed.
 
 Keep branches until their unique product value is integrated or explicitly retired.
 Never rewrite history or delete a remote repository as a folder-cleanup shortcut. The
-[handoff](GROW_V1_TASK_BOARD.md) and live Project record final outcomes and remaining
-acceptance gates.
+[handoff](GROW_V1_TASK_BOARD.md) and live Project record track final outcomes and
+remaining acceptance gates.

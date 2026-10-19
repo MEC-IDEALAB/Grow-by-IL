@@ -1,26 +1,34 @@
 # Grow documentation
 
-Updated: 18 October 2026. Single documentation index.
+Updated: 20 October 2026. Canonical documentation index.
 
-- [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4): task status, phase, priority, blockers and next actions.
+- [Live delivery Project](https://github.com/users/NAVANEETHVVINOD/projects/4): task status, phase, priority, blockers and evidence.
 - [Current baseline](00_Project/CURRENT_PROJECT_BASELINE.md).
 - [Task handoff](00_Project/GROW_V1_TASK_BOARD.md).
 - [Repository layout and recovery](00_Project/REPOSITORY_CONSOLIDATION.md).
+- [Approval provenance](00_Project_Management/APPROVAL_LOG.md).
 - [CI investigation and correction evidence](05_DevOps/P0_03_CI_INVESTIGATION.md).
 
-The verified delivery state is recorded in the [baseline](00_Project/CURRENT_PROJECT_BASELINE.md)
-and [handoff](00_Project/GROW_V1_TASK_BOARD.md): PR #138 repaired the Dependabot
-configuration and disabled routine version-update PRs; five meaningful drafts remain
-open behind merge, review, or current-base gates.
+The 20 October baseline records six open PRs: product drafts #90, #99, #100, #103
+and #108, plus documentation PR #146. None of the five product drafts is merge-ready
+or proven unwanted. PRs #144 (main) and #145 (RC5)
+merged after exact-head required checks and independent review; `.github/dependabot.yml`
+is absent from both protected branch trees. Post-merge run #39310512505 on main and
+run #39310529054 on RC5 both completed successfully, including the Android Production
+Build and Debug APK Build respectively. PR #108 has a locally verified recovery
+patch in a stash, but its remote head and hosted checks remain unchanged. The generated
+GitHub-managed workflow remains listed active; no run after the config-removal merges
+appears as of 20 October. Issue #143 tracks the next weekly observation.
 
 ## Product and approval provenance
 
-Retain the original scope of the [approval log](00_Project_Management/APPROVAL_LOG.md),
-[charter](01_Product/00_PRODUCT_CHARTER.md), [BRD](01_Product/03_BUSINESS_REQUIREMENTS.md),
+Retain the scope of the [approval log](00_Project_Management/APPROVAL_LOG.md),
+[charter](01_Product/00_PRODUCT_CHARTER.md),
+[Business Requirements](01_Product/03_BUSINESS_REQUIREMENTS.md),
 [Work Request requirements](01_Product/05_WORK_REQUEST_REQUIREMENTS.md) and
 [implementation contract](01_Product/06_WORK_REQUEST_IMPLEMENTATION_CONTRACT.md).
-Old approvals do not prove a deployed backend or release readiness. Later recorded
-decisions supersede only their stated scope.
+The approval log records dated decisions for their stated scope only. They do not
+prove a deployed backend, approval of other modules, or release readiness.
 
 Current decision gates: [Work Request delta](02_Product/WORK_REQUEST_CONTRACT_DELTA.md),
 [profile](02_Product/PROFILE_ECOSYSTEM_DECISION_GATE.md),
@@ -30,8 +38,8 @@ Current decision gates: [Work Request delta](02_Product/WORK_REQUEST_CONTRACT_DE
 [Penpot](01_Design/PENPOT_ACCEPTANCE_MATRIX.md),
 [backend security](03_Database/BACKEND_SECURITY_BASELINE.md),
 [auth providers](03_Database/AUTH_PROVIDER_RELEASE_CHECKLIST.md),
-[roles/positions](03_Database/ROLE_AND_POSITION_CONTRACT.md),
-and [Storage](03_Database/STORAGE_ACCESS_CONTRACT.md).
+[roles/positions](03_Database/ROLE_AND_POSITION_CONTRACT.md), and
+[Storage](03_Database/STORAGE_ACCESS_CONTRACT.md).
 
 ## Documentation policy
 
@@ -45,24 +53,9 @@ Engineering references: [workflow](04_Engineering/DEV_WORKFLOW.md),
 Narrative docs belong here. Required README, SECURITY, CONTRIBUTING, AGENTS/SKILL
 loaders, CODEOWNERS and GitHub templates stay at their discovery locations. Root
 governance entries can link to canonical docs. Vendor/framework Markdown stays with
-its owning tool; generated caches are not project documentation.
+its owning tool; generated caches are not documentation.
 
-Reviewed non-sensitive docs are versioned. Credentials, signing files, private security
-evidence, raw snapshots and recovery archives remain ignored. The advisory repository
-is separate remediation work, not a duplicate app to delete.
-
-The 18 October local workspace review found one Grow application checkout and one
-worktree nested under the outer `Grow/` workspace. Account-level repository
-reconciliation remains open; its disposition is tracked in private Project #4, and
-no remote repository is disposable until unique work is reconciled. The scoped
-`.local/recovery/2026-10-16/original-primary-docs` inventory contains 109 Markdown
-files among 113 total files. Seven paths overlap the current `docs/` tree; files at
-those paths are not byte-identical. This is not a count of all `.local/recovery`.
-The recovery disposition remains pending; preserve `.local`, secrets, and user data.
-Recovery is local, not an off-machine backup. Do not restore old competing roadmaps as
-live boards.
-
-The generated files `android/hs_err_pid8548.log` and `supabase/.temp/cli-latest` were
-removed after confirming they were ignored/generated. The now-empty `supabase/.temp`
-directory remains because directory removal was rejected. No broad cache cleanup was
-completed; only the two exact files above were removed.
+Reviewed non-sensitive project docs are versioned. Credentials, signing files,
+private security evidence, raw snapshots and recovery archives remain local/ignored.
+Other repositories remain separate until their contents are reviewed; directory-name
+similarity alone does not establish that a repository is safe to delete.
