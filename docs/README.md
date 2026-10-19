@@ -9,26 +9,13 @@ Updated: 20 October 2026. Canonical documentation index.
 - [Approval provenance](00_Project_Management/APPROVAL_LOG.md).
 - [CI investigation and correction evidence](05_DevOps/P0_03_CI_INVESTIGATION.md).
 
-The 20 October snapshot records five open PRs, all product drafts: #90, #99, #100,
-#103 and #108. None is merge-ready or proven unwanted. Documentation PR #146 merged to
-RC5 as `503db777b5f066fabac570ee08dfe2c70ef95a3c` from exact head
-`b40e4a7e1583bad8c3e6b2c7b606eeda2fc9a3d4`. Its exact-head Quality Gate and Debug APK
-Build passed in run #39316875608; post-merge run #39318103268 passed both required jobs.
-PR [#147](https://github.com/NAVANEETHVVINOD/Grow-by-IL/pull/147) also merged to RC5
-as `9233e02ffdf0c6f773b67c4d3ab1cd6f8fe003e3` from exact head
-`562fa0f4d053986588cb15662db4838af2483850`; its exact-head Quality Gate and Debug APK
-Build passed in run #39320508110, and independent audit found no blocker. Post-merge
-run #39321857192 passed Quality Gate and Debug APK Build; Release APK Build was
-skipped and is not required. PRs #144 (main) and #145 (RC5) also merged
-after exact-head required checks and independent review; `.github/dependabot.yml` is
-absent from both protected branch trees.
-Post-merge run #39310512505 on main and run #39310529054 on RC5 completed successfully.
-PR #108 has a locally verified recovery patch in a stash, but its remote head and hosted
-checks remain unchanged. The generated GitHub-managed workflow remains listed active;
-no run after the config-removal merges appears as of 20 October. Issue #143 tracks the
-next weekly observation. At this snapshot Project #4 has 68 cards: 25 Done, 5 In
-Progress, 7 Todo and 31 Blocked; the task board is a dated snapshot and Project #4 is
-the live queue.
+The 20 October snapshot records primary RC5 at `ef14bf3e5e2d20f3c9b76a05d4b49f787d12b58d` and Project #4 at 68 cards (25 Done, 5 In Progress, 7 Todo, 31 Blocked). The primary repo has 37 open issues and five open product PRs (#90, #99, #100, #103 and #108); they are drafts, 27 commits behind RC5, and none is merge-ready or proven unwanted. Project #4 is the live queue.
+
+Documentation PR #146 merged to RC5 as `503db777b5f066fabac570ee08dfe2c70ef95a3c` from exact head `b40e4a7e1583bad8c3e6b2c7b606eeda2fc9a3d4`; exact-head and post-merge required checks passed. PR #147 merged as `9233e02ffdf0c6f773b67c4d3ab1cd6f8fe003e3` from exact head `562fa0f4d053986588cb15662db4838af2483850`; exact-head checks, independent audit and post-merge run #39321857192 passed. PR #148 merged as `ef14bf3e5e2d20f3c9b76a05d4b49f787d12b58d` from exact head `47df5cfdd9a8298038ffe53938ff2294e108ff8d`; exact-head checks passed in #39323517381, independent audit passed, and post-merge run #39324673949 passed both required RC5 jobs. Release APK builds were skipped and are not required for these docs-only changes. PRs #144/#145 removed `.github/dependabot.yml` from main/RC5; their checks/reviews and post-merge Android builds passed.
+
+The private secondary repository `NAVANEETHVVINOD/Grow-by-IL-ghsa-fgf9-xx2v-57qp` was fully inventoried. It contains one unique four-commit security series shared by closed PR #1 and open PR #2; the migration, tests and ledger are absent from primary. PR #2 expects a different role/membership schema, has no hosted checks or submitted review, and pauses join/transfer flows. Retain the repo until a primary-specific fix is verified or its security history is preserved in a restorable private archive; confirm GHSA retention requirements before deletion.
+
+Issue #88 tracks conditional authorization concerns pending live-schema/grant verification. The tracked source alone does not establish an active production exploit, and no production migration is authorized. Issue #143 remains open for the next weekly observation of the generated Dependabot workflow. The local #108 recovery patch remains in stash; local test results are not hosted PR checks. The task board and Project #4 record the current acceptance gates.
 
 ## Product and approval provenance
 
@@ -67,5 +54,4 @@ its owning tool; generated caches are not documentation.
 
 Reviewed non-sensitive project docs are versioned. Credentials, signing files,
 private security evidence, raw snapshots and recovery archives remain local/ignored.
-Other repositories remain separate until their contents are reviewed; directory-name
-similarity alone does not establish that a repository is safe to delete.
+The secondary Grow-by-IL GHSA repository has been inventoried and retained because open PR #2 contains unique security history; see the current baseline and repository consolidation record. Directory-name similarity alone does not establish that a repository is safe to delete.

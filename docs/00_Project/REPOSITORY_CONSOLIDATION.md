@@ -12,9 +12,7 @@ rejected by the execution policy.
 
 The outer workspace contained exactly one child checkout before the move; no sibling
 folder was moved. Other directories under F:\kannan\projects are separate projects.
-The second Grow-named GitHub repository is separate and remains preserved pending review.
-Compare its contents against the primary repository and preserve or explicitly abandon
-any unique work before deletion.
+The private secondary repository NAVANEETHVVINOD/Grow-by-IL-ghsa-fgf9-xx2v-57qp was fully inventoried read-only: 29 refs (21 branches, 5 tags, 3 PR refs), with two PR records. Five tags and fourteen branch tips match primary; old main/RC5 tips are ancestors, and Dependabot, release-hardening and profile-identity histories are represented in primary PRs #80/#90/#103. The only unique content is a four-commit security series shared by closed-unmerged PR #1 and open PR #2; matching patch IDs show #1 duplicates #2. Its migration, pgTAP tests and ledger are absent from primary. PR #2 is not safe to port unchanged because it expects a different role/membership schema, has no hosted checks or submitted review, and pauses join/transfer flows. Retain this repository until a primary-specific fix passes current gates or the security work is preserved in a verified owner-approved private archive; confirm GHSA retention requirements before deletion.
 
 The following ignored generated targets were verified before cleanup: .dart_tool,
 root build, empty supabase/.temp, and .flutter-plugins-dependencies. The execution

@@ -42,6 +42,13 @@ tracked reconciliation.
    leaked-password protection need a reviewed disposition before operational
    backend expansion.
 
+## Current RC5 review note — 20 October 2026
+
+A static review identified conditional high-severity authorization concerns in the current role and project-membership boundaries. Whether they are exploitable depends on grants, policies and schema state in the deployed database, which have not been verified through authorized read-only access. Treat these as candidates, not confirmed production exploits. Issue [#88](https://github.com/NAVANEETHVVINOD/Grow-by-IL/issues/88) tracks the validation and remediation gate; line-level review evidence is held in the private Project #4.
+
+The private secondary GHSA repository contains an open security PR whose migration assumes a different role and membership vocabulary than primary RC5. It has no hosted checks or submitted review and changes join/transfer behavior. Do not apply or port it unchanged. Retain the repository until a primary-specific remediation passes the current checks and independent review, or its unique security history is preserved in a verified owner-approved private archive. Confirm GHSA retention requirements before deletion.
+
+No production migration is authorized. Begin with read-only reconciliation of live schema, grants, RLS policies and migration history, then test a primary-specific change against a fresh reset and the intended deployment baseline.
 ## Required decisions before database design
 
 | Decision | Required outcome |
