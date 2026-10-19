@@ -27,7 +27,7 @@ The five existing product PRs are drafts with no submitted review. None is merge
 | [#103](https://github.com/NAVANEETHVVINOD/Grow-by-IL/pull/103) | BEHIND RC5; old CI | Update base, rerun required checks, review and repeat applicable Android acceptance. |
 | [#108](https://github.com/NAVANEETHVVINOD/Grow-by-IL/pull/108) | Remote head a608aa1, BEHIND RC5; 28 September checks | Reconcile local recovery fix, update base, run current hosted checks, obtain review and complete provider/backend/device acceptance. |
 
-Documentation PR [#146](https://github.com/NAVANEETHVVINOD/Grow-by-IL/pull/146) refreshes the root README and canonical docs after PRs #144/#145 merged. Local validation and independent read-only review passed; exact-head Quality Gate passed, required Debug APK Build is in progress, and Release APK Build was skipped. It does not change application code or approve a release.
+Documentation PR [#146](https://github.com/NAVANEETHVVINOD/Grow-by-IL/pull/146) refreshes the root README and canonical docs after PRs #144/#145 merged. Local validation and independent read-only review passed. Verify the current PR head's required Quality Gate and Debug APK Build before merging. It does not change application code or approve a release.
 
 The two Dependabot config-removal PRs are merged:
 
