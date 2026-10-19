@@ -57,4 +57,5 @@ its owning tool; generated caches are not documentation.
 
 Reviewed non-sensitive project docs are versioned. Credentials, signing files,
 private security evidence, raw snapshots and recovery archives remain local/ignored.
-The advisory repository is separate remediation work, not a duplicate app to delete.
+Other repositories remain separate until their contents are reviewed; directory-name
+similarity alone does not establish that a repository is safe to delete.
