@@ -11,22 +11,21 @@ Operational backend and release acceptance remain in progress.
 
 ## Source layout
 
-Use one primary checkout, grow/. Flutter code is in lib/core, lib/features and
-lib/shared; Android source is in android; assets, unit/widget tests and integration
-acceptance sources remain in their framework locations. Narrative docs live in docs.
-Required repository/agent/security entry files and GitHub templates remain discoverable.
-Ignored .local contains private recovery and local artifacts, never application source.
+The repository root is the primary checkout. Flutter code is in lib/core,
+lib/features and lib/shared; Android source is in android; assets, unit/widget tests
+and integration acceptance sources remain in their framework locations. Narrative
+docs live in docs. Required repository/agent/security entry files and GitHub templates
+remain discoverable. Ignored .local contains private recovery and local artifacts,
+never application source.
 
 ## Local setup
 
 Use the pinned Flutter 3.41.9 toolchain for the current RC5 source and the committed
 pubspec.lock. SDK/API major upgrades are separate migration work, tracked in #114.
 
-```sh
-flutter pub get
-flutter analyze
-flutter test
-```
+    flutter pub get
+    flutter analyze
+    flutter test
 
 Supply the intended environment's public mobile configuration through the existing
 build configuration; .env.example lists names. Place the environment-specific
@@ -35,10 +34,10 @@ Use the [provider checklist](docs/03_Database/AUTH_PROVIDER_RELEASE_CHECKLIST.md
 claiming Google/email auth or an exact APK is ready.
 
 Supabase Auth is the application identity authority. Firebase/native Google integration
-is not a second authorization authority. Values supplied with --dart-define are bundled
-into the APK: never put service-role credentials, signing/payment secrets or other
-privileged secrets there. Server-enforced grants/RLS and protected functions remain
-required; UI visibility and successful builds do not prove authorization.
+is not a second authorization authority. Values supplied with --dart-define are
+bundled into the APK: never put service-role credentials, signing/payment secrets or
+other privileged secrets there. Server-enforced grants/RLS and protected functions
+remain required; UI visibility and successful builds do not prove authorization.
 
 ## Current verification boundary
 

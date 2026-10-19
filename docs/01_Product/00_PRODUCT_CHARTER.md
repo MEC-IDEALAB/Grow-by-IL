@@ -334,7 +334,7 @@ Engineering success:
   Inventory are not separated early.
 - Documentation may drift if phase gates are ignored.
 
-Mitigations are tracked in `../00_Project_Management/RISK_REGISTER.md`.
+Mitigations and current delivery blockers are tracked in the [V1 task board](../00_Project/GROW_V1_TASK_BOARD.md) and [live Project](https://github.com/users/NAVANEETHVVINOD/projects/4).
 
 ## 14. Recommended Phase Roadmap
 
