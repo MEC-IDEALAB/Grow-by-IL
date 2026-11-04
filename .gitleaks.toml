@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Public SHA-256 of the installed shared access hardening migration"
+condition = "AND"
+paths = ['(?:^|/)\.github/ci/approved_historical_migrations\.json$']
+regexes = ['^d0b78457f55befaabc67d4767507e0b6a282ed6c909c4884cae7535719f23a15$']
