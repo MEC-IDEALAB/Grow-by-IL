@@ -1,0 +1,17 @@
+# Paths gated during the architecture phase.
+#
+# Format:
+# <path-regex>::<human-readable reason>
+#
+# Keep this file conservative while Phase 1B/Phase 2 are not approved. UI-only
+# preview work may be allowed, but persistence, domain models, repositories, and
+# schema changes for new operational modules are gated.
+
+^supabase/migrations/::Schema migrations require approved database architecture.
+^lib/features/work_requests/(data|domain)/::Work Request persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/inventory/(data|domain)/::Inventory persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/borrowing/(data|domain)/::Borrowing persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/payments/(data|domain)/::Payment persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/quotations/(data|domain)/::Quotation persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/visitors/(data|domain)/::Visitor persistence/domain implementation requires PRD/SRS and architecture approval.
+^lib/features/machines/(data|domain)/::Machine persistence/domain implementation requires PRD/SRS and architecture approval.

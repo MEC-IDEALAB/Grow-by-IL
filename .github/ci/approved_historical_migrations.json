@@ -1,0 +1,4 @@
+{
+  "supabase/migrations/20261102083307_shared_access_hardening_v1.sql": "d0b78457f55befaabc67d4767507e0b6a282ed6c909c4884cae7535719f23a15",
+  "supabase/migrations/20261102130200_shared_profile_contract_v1.sql": "492fbccba41ac6db03836b2ab62b1a5e9d7349a278d0670f032e8b2daad297b0"
+}
