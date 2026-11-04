@@ -1,0 +1,10 @@
+# Preserve exact shared-contract SQL bytes and installed ledger fingerprints.
+supabase/migrations/20261102083307_shared_access_hardening_v1.sql -text
+supabase/migrations/20261102130200_shared_profile_contract_v1.sql -text
+supabase/candidates/shared_profile_contract_v1.sql -text
+supabase/candidates/shared_profile_contract_v1_rollback.sql -text
+supabase/tests/shared_profile_contract_v1_fixture.sql -text
+supabase/tests/shared_profile_contract_v1_candidate_checks.sql -text
+supabase/tests/shared_profile_contract_v1_legacy_fixture_checks.sql -text
+supabase/tests/shared_profile_contract_v1_behavior_checks.sql -text
+supabase/tests/shared_profile_contract_v1_rollback_checks.sql -text

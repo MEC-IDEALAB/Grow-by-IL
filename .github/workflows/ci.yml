@@ -56,51 +56,14 @@ jobs:
       - name: Unit and widget tests
         run: flutter test
 
+      - name: Architecture guard tests
+        run: python3 -m unittest discover -s .github/ci -p 'test_*.py'
+
       - name: Architecture phase guard
-        shell: bash
-        run: |
-          echo "Checking for gated architecture-phase changes..."
-
-          # For PRs: diff only the files changed by this PR (merge-base strategy)
-          # For pushes: diff only the files in the pushed commits
-          if [ -n "${{ github.event.pull_request.base.sha }}" ]; then
-            # PR event — use merge-base so we only see files THIS PR changed,
-            # not every file that differs between the target branch and main.
-            MERGE_BASE="$(git merge-base ${{ github.event.pull_request.base.sha }} HEAD)"
-            CHANGED_FILES="$(git diff --name-only "$MERGE_BASE" HEAD)"
-          elif [ -n "${{ github.event.before }}" ] && [ "${{ github.event.before }}" != "0000000000000000000000000000000000000000" ]; then
-            # Push event — compare against the previous HEAD of this branch
-            CHANGED_FILES="$(git diff --name-only ${{ github.event.before }} HEAD)"
-          else
-            # Fallback (new branch, workflow_dispatch) — compare against parent
-            CHANGED_FILES="$(git diff --name-only HEAD~1 HEAD 2>/dev/null || git diff --name-only $(git rev-list --max-parents=0 HEAD) HEAD)"
-          fi
-
-          echo "Files changed in this changeset:"
-          echo "$CHANGED_FILES"
-
-          BLOCKED=0
-          GUARD_FILE=".github/ci/architecture_guard_paths.txt"
-
-          while IFS= read -r line; do
-            pattern="${line%%::*}"
-            reason="${line#*::}"
-            if [ -z "$pattern" ] || [[ "$pattern" =~ ^# ]]; then
-              continue
-            fi
-
-            if echo "$CHANGED_FILES" | grep -E "$pattern"; then
-              echo "::error::$reason"
-              BLOCKED=1
-            fi
-          done < "$GUARD_FILE"
-
-          if [ "$BLOCKED" -eq 1 ]; then
-            echo "Architecture phase guard failed. Use a UI-only reversible slice or complete the approval gate."
-            exit 1
-          fi
-
-          echo "Architecture phase guard passed."
+        env:
+          ARCHITECTURE_PR_BASE: ${{ github.event.pull_request.base.sha }}
+          ARCHITECTURE_PUSH_BEFORE: ${{ github.event.before }}
+        run: python3 .github/ci/architecture_phase_guard.py
 
       - name: Schema contract validation
         shell: bash

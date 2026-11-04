@@ -11,6 +11,14 @@ authorization, RLS, migration and audit boundaries. It does not authorize
 production SQL, seed data, role assignment, storage access, or Flutter
 persistence work.
 
+## Approved installed source records
+
+The two exact owner-approved shared-account records from 2 November 2026 are
+reconciled in [source provenance](SHARED_SQL_SOURCE_PROVENANCE.md), including
+their independently checked ledger SHA-256s. This specific source-history
+exception does not approve new operational persistence or client activation.
+Keep the remaining architecture/security gates below.
+
 ## Canonical sources
 
 - `SECURITY.md` for security engineering rules.
